@@ -25,9 +25,9 @@ import java.sql.Clob;
 import java.sql.Date;
 import java.sql.NClob;
 import java.sql.Ref;
-import java.sql.RowId;
 import java.sql.ResultSet;
 import java.sql.ResultSetMetaData;
+import java.sql.RowId;
 import java.sql.SQLException;
 import java.sql.SQLWarning;
 import java.sql.SQLXML;
@@ -2150,6 +2150,7 @@ public class ResultSetSpy implements ResultSet, Spy
   /**
    * @deprecated
    */
+  @Deprecated
   public InputStream getUnicodeStream(int columnIndex) throws SQLException
   {
     String methodCall = "getUnicodeStream(" + columnIndex + ")";
@@ -2167,6 +2168,7 @@ public class ResultSetSpy implements ResultSet, Spy
   /**
    * @deprecated
    */
+  @Deprecated
   public InputStream getUnicodeStream(String columnName) throws SQLException
   {
     String methodCall = "getUnicodeStream(" + columnName + ")";
@@ -2818,6 +2820,7 @@ public class ResultSetSpy implements ResultSet, Spy
   /**
    * @deprecated
    */
+  @Deprecated
   public BigDecimal getBigDecimal(int columnIndex, int scale) throws SQLException
   {
     String methodCall = "getBigDecimal(" + columnIndex + ", " + scale + ")";
@@ -2835,6 +2838,7 @@ public class ResultSetSpy implements ResultSet, Spy
   /**
    * @deprecated
    */
+  @Deprecated
   public BigDecimal getBigDecimal(String columnName, int scale) throws SQLException
   {
     String methodCall = "getBigDecimal(" + columnName + ", " + scale + ")";

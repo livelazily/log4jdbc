@@ -942,6 +942,7 @@ public class CallableStatementSpy extends PreparedStatementSpy implements Callab
   /**
    * @deprecated
    */
+  @Deprecated
   public BigDecimal getBigDecimal(int parameterIndex, int scale) throws SQLException
   {
     String methodCall = "getBigDecimal(" + parameterIndex + ", " + scale + ")";

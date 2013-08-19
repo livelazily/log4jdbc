@@ -27,9 +27,9 @@ import java.sql.NClob;
 import java.sql.ParameterMetaData;
 import java.sql.PreparedStatement;
 import java.sql.Ref;
-import java.sql.RowId;
 import java.sql.ResultSet;
 import java.sql.ResultSetMetaData;
+import java.sql.RowId;
 import java.sql.SQLException;
 import java.sql.SQLXML;
 import java.sql.Statement;
@@ -374,6 +374,7 @@ public class PreparedStatementSpy extends StatementSpy implements PreparedStatem
   /**
    * @deprecated
    */
+  @Deprecated
   public void setUnicodeStream(int parameterIndex, InputStream x, int length) throws SQLException
   {
     String methodCall = "setUnicodeStream(" + parameterIndex + ", " + x + ", " + length + ")";
