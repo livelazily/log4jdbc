@@ -4,3 +4,6 @@
 .classpath
 .project
 .settings
+/build
+classes-jdbc*/
+/doc/apidoc-jdbc*/
