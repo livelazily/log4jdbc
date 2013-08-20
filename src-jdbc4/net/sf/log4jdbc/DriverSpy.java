@@ -101,7 +101,7 @@ public class DriverSpy implements Driver
    * Maps driver class names to RdbmsSpecifics objects for each kind of
    * database.
    */
-  private static Map rdbmsSpecifics;
+  private static Map<String, RdbmsSpecifics> rdbmsSpecifics;
 
   static final SpyLogDelegator log = SpyLogFactory.getSpyLogDelegator();
 
@@ -452,7 +452,7 @@ public class DriverSpy implements Driver
     // time.  The driver can spy on any driver type, it's just a little bit
     // easier to configure log4jdbc if it's one of these types!
 
-    Set subDrivers = new TreeSet();
+    Set<String> subDrivers = new TreeSet<String>();
 
     if (AutoLoadPopularDrivers)
     {
@@ -506,9 +506,9 @@ public class DriverSpy implements Driver
     // instantiate all the supported drivers and remove
     // those not found
     String driverClass;
-    for (Iterator i = subDrivers.iterator(); i.hasNext();)
+    for (Iterator<String> i = subDrivers.iterator(); i.hasNext();)
     {
-      driverClass = (String) i.next();
+      driverClass = i.next();
       try
       {
         Class.forName(driverClass);
@@ -531,7 +531,7 @@ public class DriverSpy implements Driver
     MySqlRdbmsSpecifics mySql = new MySqlRdbmsSpecifics();
 
     /** create lookup Map for specific rdbms formatters */
-    rdbmsSpecifics = new HashMap();
+    rdbmsSpecifics = new HashMap<String, RdbmsSpecifics>();
     rdbmsSpecifics.put("oracle.jdbc.driver.OracleDriver", oracle);
     rdbmsSpecifics.put("oracle.jdbc.OracleDriver", oracle);
     rdbmsSpecifics.put("net.sourceforge.jtds.jdbc.Driver", sqlServer);
@@ -566,7 +566,7 @@ public class DriverSpy implements Driver
 
     log.debug("driver name is " + driverName);
 
-    RdbmsSpecifics r = (RdbmsSpecifics) rdbmsSpecifics.get(driverName);
+    RdbmsSpecifics r = rdbmsSpecifics.get(driverName);
 
     if (r == null)
     {
@@ -738,7 +738,7 @@ public class DriverSpy implements Driver
       String dclass = d.getClass().getName();
       if (dclass != null && dclass.length() > 0)
       {
-        r = (RdbmsSpecifics) rdbmsSpecifics.get(dclass);
+        r = rdbmsSpecifics.get(dclass);
       }
 
       if (r == null)
