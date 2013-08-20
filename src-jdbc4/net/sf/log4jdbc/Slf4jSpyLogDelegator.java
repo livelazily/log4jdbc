@@ -20,8 +20,8 @@ import java.io.LineNumberReader;
 import java.io.StringReader;
 import java.util.StringTokenizer;
 
-import org.slf4j.LoggerFactory;
 import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * Delegates JDBC spy logging events to the the Simple Logging Facade for Java (slf4j).
@@ -482,9 +482,8 @@ public class Slf4jSpyLogDelegator implements SpyLogDelegator
           if (className.startsWith("net.sf.log4jdbc"))
           {
             firstLog4jdbcCall = i;
-          }
-          else if (DriverSpy.TraceFromApplication &&
-            className.startsWith(DriverSpy.DebugStackPrefix))
+          } else if (DriverSpy.TraceFromApplication
+              && className.matches(DriverSpy.DebugStackPrefix))
           {
             lastApplicationCall = i;
             break;
